@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 // const appWs = express('appWs')(app);
 const authRoute = require("./Routes/auth_router");
+const contactRoute = require("./Routes/contact_router");
 const connectDb = require("./Utils/dbconn");
 const errorMiddleware = require("./Middlewares/error_middleware");
 
@@ -23,6 +24,7 @@ app.use(express.json());  // middleware for parsing application/json
 
 
 app.use("/", authRoute);
+app.use("/form",contactRoute);
 
 
 app.use(errorMiddleware);
